@@ -15,9 +15,9 @@ namespace Code_Calendar
 {
     public partial class DayComponent : UserControl
     {
-        private TaskList tasks;
+        private Calendar_Class_Library.TaskList tasks;
 
-        public DayComponent(TaskList tasks)
+        public DayComponent(Calendar_Class_Library.TaskList tasks)
         {
             InitializeComponent();
             this.tasks = tasks;
@@ -25,7 +25,7 @@ namespace Code_Calendar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form3 form = new Form3(tasks);
+            TaskList form = new TaskList(tasks);
             form.ShowDialog();
         }
     }

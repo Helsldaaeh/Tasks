@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Code_Calendar
 {
-    public partial class Form3 : Form
+    public partial class TaskList : Form
     {
-        public Form3(TaskList tasks)
+        public TaskList(Calendar_Class_Library.TaskList tasks)
         {
             InitializeComponent();
             for (int i = 0; i < tasks.GetSize(); i++) { comboBox1.Items.Add(tasks); }

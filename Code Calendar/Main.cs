@@ -12,11 +12,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Code_Calendar
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         public static List<DayComponent> DayComponents = new List<DayComponent>();
         Month month; 
-        public Form1()
+        public Main()
         {
             InitializeComponent();
 

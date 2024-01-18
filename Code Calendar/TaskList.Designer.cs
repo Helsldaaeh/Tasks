@@ -1,6 +1,6 @@
 ﻿namespace Code_Calendar
 {
-    partial class Form3
+    partial class TaskList
     {
         /// <summary>
         /// Required designer variable.
@@ -50,15 +50,15 @@
             this.comboBox1.Size = new System.Drawing.Size(495, 21);
             this.comboBox1.TabIndex = 3;
             // 
-            // Form3
+            // TaskList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 398);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox2);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "TaskList";
+            this.Text = "TaskList";
             this.ResumeLayout(false);
             this.PerformLayout();
 
