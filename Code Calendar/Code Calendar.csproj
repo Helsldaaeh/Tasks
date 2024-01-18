@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalendarViewModel.cs" />
     <Compile Include="DayComponent.cs">
       <SubType>UserControl</SubType>
     </Compile>

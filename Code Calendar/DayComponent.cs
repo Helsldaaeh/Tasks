@@ -17,16 +17,19 @@ namespace Code_Calendar
     {
         private Calendar_Class_Library.TaskList tasks;
 
-        public DayComponent(Calendar_Class_Library.TaskList tasks)
+        public DayComponent(Calendar_Class_Library.TaskList tasks, int daytitle)
         {
             InitializeComponent();
             this.tasks = tasks;
+            this.button1.Text = daytitle.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             TaskList form = new TaskList(tasks);
             form.ShowDialog();
         }
+
     }
 }

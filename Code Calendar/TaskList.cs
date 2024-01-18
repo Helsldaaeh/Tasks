@@ -16,8 +16,13 @@ namespace Code_Calendar
         public TaskList(Calendar_Class_Library.TaskList tasks)
         {
             InitializeComponent();
-            for (int i = 0; i < tasks.GetSize(); i++) { comboBox1.Items.Add(tasks); }
-            textBox2.Text = tasks.Tasks[comboBox1.SelectedIndex].Description;
+
+            if (tasks.Tasks.Count > 0)
+            {
+                for (int i = 0; i < tasks.GetSize(); i++) { comboBox1.Items.Add(tasks); }
+                comboBox1.SelectedIndex = 0;
+                textBox2.Text = tasks.Tasks[comboBox1.SelectedIndex].Description;
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
