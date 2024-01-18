@@ -28,7 +28,7 @@ namespace Code_Calendar
             {
                 DayComponent nextDayComponent = new DayComponent(month.Daylist[i].Tasks, i + 1);
                 DayComponent lastPlacedDayComponent = DayComponents.LastOrDefault();
-                nextDayComponent.Location = new Point(startX + (sizeX * ((month.Start + i) % 7)), startY + (sizeY * countWeeks));
+                nextDayComponent.Location = new Point(startX + (sizeX * ((month.Start + i) % 7) + 10), startY + (sizeY * countWeeks) + 5);
                 if (((month.Start + i) % 7) == 6) countWeeks++;
                 DayComponents.Add(nextDayComponent);
                 this.Controls.Add(nextDayComponent);
