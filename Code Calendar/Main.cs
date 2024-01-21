@@ -1,28 +1,32 @@
 ﻿using Calendar_Class_Library;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection.Emit;
+using System.Security.Policy;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.AxHost;
 
 namespace Code_Calendar
 {
     public partial class Main : Form
     {
+        string[] MonthNames = { "Январь", "Февраль", "Март",
+                                "Апрель", "Май", "Июнь",
+                                "Июль", "Август", "Сентябрь",
+                                "Октябрь", "Ноябрь", "Декабрь" };
+        public static int indexofmonth = 0;
         public static List<DayComponent> DayComponents = new List<DayComponent>();
         private CalendarViewModel vm;
+        public static List<DayComponent> stackofdays; 
 
         private void ShowMonth(Month month)
         {
-            int startX = 12;
-            int startY = 89;
-            int sizeX = 100;
-            int sizeY = 47;
+            int startX = 14;
+            int startY = 119;
+            int sizeX = 180;
+            int sizeY = 100;
             int countWeeks = 0;
             for (int i = 0; i < month.NumberOfDays; i++)
             {
@@ -34,8 +38,6 @@ namespace Code_Calendar
                 this.Controls.Add(nextDayComponent);
             }
         }
-
-        Month month;
         public Main()
         {
             InitializeComponent();
@@ -46,17 +48,74 @@ namespace Code_Calendar
                 new Calendar_Class_Library.Task(),
                 new Calendar_Class_Library.Task(),
                 new Calendar_Class_Library.Task(),
-            });
-        }
 
+            });
+            ShowMonth(vm.MonthList[indexofmonth]);
+        }
+        
         private void Main_Load(object sender, EventArgs e)
         {
+            indexofmonth = 0;
+            label10.Text = DateTime.Now.ToString();
+            label8.Text = MonthNames[indexofmonth];
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ShowMonth(vm.GetCurrentMonth());
 
+        }
+
+        public void button3_Click(object sender, EventArgs e)
+        {
+            if (indexofmonth + 1 > 11)
+            {
+                indexofmonth = 0;
+                for (int i = 0; i < DayComponents.Count; i++)
+                {
+                    DayComponents[i].Enabled = false;
+                    DayComponents[i].Hide();
+                }
+                label8.Text = MonthNames[indexofmonth];
+                ShowMonth(vm.MonthList[indexofmonth]);
+            }
+
+            else
+            {
+                indexofmonth++;
+                for (int i = 0; i < DayComponents.Count; i++)
+                {
+                    DayComponents[i].Enabled = false;
+                    DayComponents[i].Hide();
+                }
+                label8.Text = MonthNames[indexofmonth];
+                ShowMonth(vm.MonthList[indexofmonth]);
+            }
+        }
+
+        public void button2_Click(object sender, EventArgs e)
+        {
+            if (indexofmonth - 1 < 0)
+            {
+                indexofmonth = 11;
+                for (int i = 0; i < DayComponents.Count; i++)
+                {
+                    DayComponents[i].Enabled = false;
+                    DayComponents[i].Hide();
+                }
+                label8.Text = MonthNames[indexofmonth];
+                ShowMonth(vm.MonthList[indexofmonth]);
+            }
+            else
+            {
+                indexofmonth--;
+                for (int i = 0; i < DayComponents.Count; i++)
+                {
+                    DayComponents[i].Enabled = false;
+                    DayComponents[i].Hide();
+                }
+                label8.Text = MonthNames[indexofmonth];
+                ShowMonth(vm.MonthList[indexofmonth]);
+            }
         }
     }
 }

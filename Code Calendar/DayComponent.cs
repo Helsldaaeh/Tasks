@@ -15,20 +15,22 @@ namespace Code_Calendar
 {
     public partial class DayComponent : UserControl
     {
-        private Calendar_Class_Library.TaskList tasks;
-
+        public Calendar_Class_Library.TaskList tasks;
+        public int numberofday;
         public DayComponent(Calendar_Class_Library.TaskList tasks, int daytitle)
         {
             InitializeComponent();
             this.tasks = tasks;
             this.button1.Text = daytitle.ToString();
+            numberofday = daytitle;
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             
             TaskList form = new TaskList(tasks);
             form.ShowDialog();
+            Main.stackofdays.Add(this);
         }
 
     }

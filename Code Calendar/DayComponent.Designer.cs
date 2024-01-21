@@ -1,4 +1,6 @@
-﻿namespace Code_Calendar
+﻿using System.Windows.Forms;
+
+namespace Code_Calendar
 {
     partial class DayComponent
     {
@@ -33,12 +35,13 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 47);
+            this.button1.Size = new System.Drawing.Size(180, 100);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DayComponent
@@ -47,7 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button1);
             this.Name = "DayComponent";
-            this.Size = new System.Drawing.Size(100, 47);
+            this.Size = new System.Drawing.Size(180, 100);
             this.ResumeLayout(false);
 
         }
@@ -55,5 +58,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Border3DStyle border;
+        
     }
 }
