@@ -19,7 +19,6 @@ namespace Code_Calendar
         public static int indexofmonth = 0;
         public static List<DayComponent> DayComponents = new List<DayComponent>();
         private CalendarViewModel vm;
-        public static List<DayComponent> stackofdays; 
 
         private void ShowMonth(Month month)
         {
@@ -30,7 +29,7 @@ namespace Code_Calendar
             int countWeeks = 0;
             for (int i = 0; i < month.NumberOfDays; i++)
             {
-                DayComponent nextDayComponent = new DayComponent(month.Daylist[i].Tasks, i + 1);
+                DayComponent nextDayComponent = new DayComponent(month.Daylist[i].Tasks, i + 1, month.Daylist[i]);
                 DayComponent lastPlacedDayComponent = DayComponents.LastOrDefault();
                 nextDayComponent.Location = new Point(startX + (sizeX * ((month.Start + i) % 7) + 10), startY + (sizeY * countWeeks) + 5);
                 if (((month.Start + i) % 7) == 6) countWeeks++;
